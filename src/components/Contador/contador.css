@@ -1,0 +1,6 @@
+.ajust-contador{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    align-items: baseline;
+}
