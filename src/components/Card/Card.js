@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db } from "../config/firebase";
+import { db } from "../../config/firebase";
 import { getDocs, collection, query, limit } from "firebase/firestore"; 
 
 function Card() {

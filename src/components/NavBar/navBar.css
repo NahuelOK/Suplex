@@ -4,9 +4,12 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 .ajust-navbar{
-    gap: 34%;
+    gap: 27%;
 }
 .ajust-carro{
     height: 24px;
-    margin-right: 4px;
+    margin-right: 6px;
+}
+.color-logo{
+ height: 38px;
 }
