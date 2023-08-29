@@ -1,15 +1,21 @@
-.oferta{
-        height: 34px;
-        width: 18%;
-        background-color: black;
-        margin-top: 2%;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        margin-bottom: 40px;
+.galeria{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-left: 4%;
+    margin-right: 4%;
 }
-
-.oferta h2{
-    color:white;
-    font-size: 26px;
-    margin-left: 38px;
+.nombre-produ{
+    font-size: 14px;
+}
+.precio-produ{
+    font-size: 22px;
+}
+.boton-ver{
+    margin-left: 54%;
+    width: 124px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 14px;
 }

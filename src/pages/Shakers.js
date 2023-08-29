@@ -1,7 +1,7 @@
 import NavBar from "../components/NavBar/NavBar";
 import Card from "../components/Card/Card";
 import Banner from "../components/Banner/Banner";
-import Oferta from "../components/Oferta/Oferta";
+import Separadores from "../components/Separadores/Separadores"
 import React, { useState } from "react";
 
 const Home = ()=>{
@@ -10,7 +10,7 @@ const Home = ()=>{
         <div>
             <NavBar/>
             <Banner/>
-            <Oferta/>
+            <Separadores titulo={"Shakers"}/>
             <Card categoriaFiltrar={currentPage} />
         </div>
     )

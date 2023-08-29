@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
-import { getDocs, collection, query, limit } from "firebase/firestore"; 
+import { getDocs, collection, query} from "firebase/firestore"; 
 import "./card.css"
 
 function Card({ categoriaFiltrar }) {
@@ -15,9 +15,9 @@ function Card({ categoriaFiltrar }) {
       setProductsList(dataFilter);
     };
     getProductList();
-  }, []);
+  },[]);
 
-const productosFiltrados = productList.filter(producto => producto.categoria === categoriaFiltrar);
+  const productosFiltrados = productList.filter(producto => producto.categoria === categoriaFiltrar);
 
   return (
     <div className="galeria">
