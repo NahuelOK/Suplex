@@ -5,7 +5,7 @@ import Oferta from "../components/Oferta/Oferta";
 import React, { useState } from "react";
 
 const Home = ()=>{
-    const [currentPage] = useState("P"); 
+    const [currentPage] = useState("C"); 
     return(
         <div>
             <NavBar/>

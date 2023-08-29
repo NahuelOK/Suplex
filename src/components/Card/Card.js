@@ -3,13 +3,13 @@ import { db } from "../../config/firebase";
 import { getDocs, collection, query, limit } from "firebase/firestore"; 
 import "./card.css"
 
-function Card() {
+function Card({ categoriaFiltrar }) {
   const [productList, setProductsList] = useState([]);
   const productosRef = collection(db, "productos");
 
   useEffect(() => {
     const getProductList = async () => {
-      const q = query(productosRef, limit(10));
+      const q = query(productosRef);
       const data = await getDocs(q);
       const dataFilter = data.docs.map((doc) => ({ ...doc.data(), id: doc.id,}));
       setProductsList(dataFilter);
@@ -17,9 +17,11 @@ function Card() {
     getProductList();
   }, []);
 
+const productosFiltrados = productList.filter(producto => producto.categoria === categoriaFiltrar);
+
   return (
     <div className="galeria">
-      {productList.map((product) => (
+      {productosFiltrados.map((product) => (
         <div className="card-produ" key={product.id}>
           <img className="img-producto" src={product.url} alt={`Imagen de ${product.nombre}`}/>
           <div>

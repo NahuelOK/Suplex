@@ -7,7 +7,7 @@ const NavBar = () => {
     return(
         <nav className="navbar navbar-expand-lg color-nav">
             <div className="container-fluid ajust-navbar">
-                <Link className="navbar-brand" to="/"><img className="color-logo" src={Logo}></img></Link>
+                <Link className="navbar-brand" to="/"><img className="color-logo" src={Logo} alt="Logo"></img></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -17,12 +17,12 @@ const NavBar = () => {
                             <Link className="nav-link active" to="/">Inicio</Link>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                            <button className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Productos</button>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Proteinas</a></li>
-                                <li><a className="dropdown-item" href="#">Creatinas</a></li>
+                                <Link className="dropdown-item" to="/proteinas">Proteinas</Link>
+                                <Link className="dropdown-item" to="/creatinas">Creatinas</Link>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Shakers</a></li>
+                                <Link className="dropdown-item" to="/shakers">Shakers</Link>
                             </ul>
                         </li>
                         <li className="nav-item">
