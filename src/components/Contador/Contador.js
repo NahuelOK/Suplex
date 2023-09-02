@@ -4,26 +4,30 @@ import "./contador.css"
 const Contador = () => {
   const [count, setCount] = useState(0);
 
-  const increment = () => {
+  const suma = () => {
     setCount(count + 1);
   };
 
-  const decrement = () => {
-    setCount(count - 1);
+  const resta = () => {
+    if(count !== 0){
+      setCount(count - 1);
+    }
   };
 
-  const saveCount = () => {
-    console.log(`Cantidad elegida: ${count}`);
+  const guardarCantidad = () => {
+    if(count!== 0){
+      console.log(`Cantidad elegida: ${count}`);
+    }
   };
 
   return (
-    <div>
+    <div className='contenedor-contador'>
         <div className='ajust-contador mb-4'>   
-            <button className='btn btn-primary' onClick={decrement}>-</button>
-            <p>Cantidad actual: {count}</p>
-            <button className='btn btn-primary' onClick={increment}>+</button>
+            <button className='botones' onClick={resta}>-</button>
+            <p className='cantidad-a-comprar'>Cantidad: {count}</p>
+            <button className='botones' onClick={suma}>+</button>
         </div>
-        <a href="#" className="btn btn-primary" onClick={saveCount}>Comprar</a>
+        <button className="boton-comprar" onClick={guardarCantidad}>COMPRAR</button>
     </div>
   );
 };

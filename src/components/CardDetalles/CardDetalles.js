@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
 import { getDocs, collection, query } from "firebase/firestore";
 import Contador from "../Contador/Contador"
+import "./cardDetalles.css"
 
 function CardDetalles() {
   const { productId } = useParams();
@@ -17,18 +18,17 @@ function CardDetalles() {
       setProductsList(dataFilter);
     };
     getProductList();
-  }, []);
+  }, [productosRef]);
 
   const productoDetalles = productList.find((producto) => producto.id === productId);
 
   return (
-    <div>
-      <h1>Detalles del Producto</h1>
+    <div className="mostrar-detalles">
       {productoDetalles && (
-        <div>
-          <h2>{productoDetalles.nombre}</h2>
-          <img src={productoDetalles.xxl}></img>
-          <p>{productoDetalles.precio}$</p>
+        <div className="contenedor-detalles">
+          <h2 className="nombre-producto">{productoDetalles.nombre}</h2>
+          <img className="img-xxl" src={productoDetalles.xxl} alt="img-detalle"></img>
+          <p className="precio-detalle">Precio: ${productoDetalles.precio}</p>
           <Contador/>
         </div>
       )}
