@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
 import { getDocs, collection, query} from "firebase/firestore"; 
+import { Link } from "react-router-dom";
 import "./card.css"
 
 function Card({ categoriaFiltrar }) {
@@ -28,7 +29,7 @@ function Card({ categoriaFiltrar }) {
           <h3  className="nombre-produ">{product.nombre}</h3>
             <h3 className="precio-produ">{product.precio}$</h3>
           </div>
-            <button className="boton-ver" id={product.id}>VER</button>
+            <Link to={`/DetalleProducto/${product.id}`} className="boton-ver">VER</Link>
         </div>
       ))}
     </div>
