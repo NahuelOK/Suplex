@@ -4,6 +4,7 @@ import Creatinas from "./pages/Creatinas"
 import Shakers from "./pages/Shakers"
 import Cuenta from "./pages/Cuenta"
 import Error from "./pages/Error";
+import Carrito from "./pages/Carrito"
 import DetallesProducto from "./pages/DetallesProducto";
 import"bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -20,6 +21,7 @@ function App() {
           <Route path="/shakers" element={<Shakers/>} />
           <Route path="/mi-cuenta" element={<Cuenta/>} />
           <Route path="*" element={<Error/>} />
+          <Route path="/carrito" element={<Carrito/>} />
         </Routes>
       </Router>
     </div>

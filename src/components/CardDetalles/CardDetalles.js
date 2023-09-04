@@ -1,35 +1,55 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
-import { getDocs, collection, query } from "firebase/firestore";
-import Contador from "../Contador/Contador"
-import "./cardDetalles.css"
+import { getDoc, doc } from "firebase/firestore";
+
+import Contador from "../Contador/Contador";
+import "./cardDetalles.css";
 
 function CardDetalles() {
   const { productId } = useParams();
-  const [productList, setProductsList] = useState([]);
-  const productosRef = collection(db, "productos");
+  const [productDetails, setProductDetails] = useState(null);
+  const [cantidadAgregada, setCantidadAgregada] = useState(0); // Mantenemos esta parte
+
+  const agregar = (cantidad) => {
+    setCantidadAgregada(cantidad);
+  };
+
+  const getProductDetails = async () => {
+    try {
+      const productDocRef = doc(db, "productos", productId);
+      const productDocSnap = await getDoc(productDocRef);
+      if (productDocSnap.exists()) {
+        const productData = productDocSnap.data();
+        setProductDetails(productData);
+      } else {
+        console.log("El producto no existe.");
+      }
+    } catch (error) {
+      console.error("Error al obtener los detalles del producto:", error);
+    }
+  };
 
   useEffect(() => {
-    const getProductList = async () => {
-      const q = query(productosRef);
-      const data = await getDocs(q);
-      const dataFilter = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      setProductsList(dataFilter);
-    };
-    getProductList();
-  }, [productosRef]);
-
-  const productoDetalles = productList.find((producto) => producto.id === productId);
+    getProductDetails();
+  }, [productId]);
 
   return (
     <div className="mostrar-detalles">
-      {productoDetalles && (
+      {productDetails && (
         <div className="contenedor-detalles">
-          <h2 className="nombre-producto">{productoDetalles.nombre}</h2>
-          <img className="img-xxl" src={productoDetalles.xxl} alt="img-detalle"></img>
-          <p className="precio-detalle">Precio: ${productoDetalles.precio}</p>
-          <Contador/>
+          <h2 className="nombre-producto">{productDetails.nombre}</h2>
+          <img className="img-xxl" src={productDetails.xxl} alt="img-detalle"></img>
+          <p className="precio-detalle">Precio: ${productDetails.precio}</p>
+          <div>
+            {
+              cantidadAgregada > 0 ? (
+                <Link className="terminar-compra" to="/carrito">Terminar Compra</Link>
+              ) : (
+                <Contador inicial={1} stock={productDetails.stock} onAdd={agregar}/>
+              )
+            }
+          </div>
         </div>
       )}
     </div>

@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import "./contador.css"
 
-const Contador = () => {
-  const [count, setCount] = useState(0);
+const Contador = ({stock, inicial, onAdd}) => {
+  const [count, setCount] = useState(inicial);
 
   const suma = () => {
-    setCount(count + 1);
-  };
-
-  const resta = () => {
-    if(count !== 0){
-      setCount(count - 1);
+    if(count < stock){
+      setCount(count + 1);
     }
   };
 
-  const guardarCantidad = () => {
-    if(count!== 0){
-      console.log(`Cantidad elegida: ${count}`);
+  const resta = () => {
+    if(count > 1){
+      setCount(count - 1);
     }
   };
 
@@ -27,7 +23,7 @@ const Contador = () => {
             <p className='cantidad-a-comprar'>Cantidad: {count}</p>
             <button className='botones' onClick={suma}>+</button>
         </div>
-        <button className="boton-comprar" onClick={guardarCantidad}>COMPRAR</button>
+        <button className="boton-comprar" onClick={() => onAdd(count)}>COMPRAR</button>
     </div>
   );
 };
