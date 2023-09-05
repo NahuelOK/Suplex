@@ -1,9 +1,13 @@
-
+import Navbar from "../components/NavBar/NavBar";
+import CarritoVista from "../components/CarritoVista/CarritoVista";
+import Footer from "../components/Footer/Footer"
 
 const Carrito = () =>{
     return(
         <div>
-            carro
+            <Navbar/>
+            <CarritoVista/>
+            <Footer/>
         </div>
     )
 }

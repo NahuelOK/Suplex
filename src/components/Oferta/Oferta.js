@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
-import { getDocs, collection, query, limit } from "firebase/firestore"; 
+import { getDocs, collection, query} from "firebase/firestore"; 
 import { Link } from "react-router-dom";
 import "./oferta.css"
 

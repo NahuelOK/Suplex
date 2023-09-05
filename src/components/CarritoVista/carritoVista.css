@@ -1,0 +1,81 @@
+.carro-info{
+    border: 2px solid black;
+    margin: 78px;
+    border-radius: 16px;
+}
+.card-item{
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.boton-borrar{
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 16px;
+   
+}
+.total-a-pagar{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 48px;
+    font-size: 24px;
+}
+.botones-final{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-right: 40px;
+    gap: 24px;
+}
+.check{
+    display: flex;
+    width: 12%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 14px;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 18px;
+    align-items: center;
+}
+.seguir{
+    display: flex;
+    width: 18%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 14px;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+}
+.sin-produ{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 3%;
+    margin-bottom: 10%;
+}
+.sin-produ a{
+    display: flex;
+    width: 18%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 14px;
+    justify-content: center;
+    text-decoration: none;
+    height: 48px;
+    align-items: center;
+}
