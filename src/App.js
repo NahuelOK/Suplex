@@ -8,21 +8,24 @@ import Carrito from "./pages/Carrito"
 import DetallesProducto from "./pages/DetallesProducto";
 import"bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { CartProvider } from "./Context/CartContext";
 
 function App() {
   return (
     <div>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/proteinas" element={<Proteinas/>} />
-          <Route path="/creatinas" element={<Creatinas/>} />
-          <Route path="/DetalleProducto/:productId" element={<DetallesProducto/>} />
-          <Route path="/shakers" element={<Shakers/>} />
-          <Route path="/mi-cuenta" element={<Cuenta/>} />
-          <Route path="*" element={<Error/>} />
-          <Route path="/carrito" element={<Carrito/>} />
-        </Routes>
+        <CartProvider>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/proteinas" element={<Proteinas/>} />
+            <Route path="/creatinas" element={<Creatinas/>} />
+            <Route path="/DetalleProducto/:productId" element={<DetallesProducto/>} />
+            <Route path="/shakers" element={<Shakers/>} />
+            <Route path="/mi-cuenta" element={<Cuenta/>} />
+            <Route path="*" element={<Error/>} />
+            <Route path="/carrito" element={<Carrito/>} />
+          </Routes>
+        </CartProvider>
       </Router>
     </div>
   );

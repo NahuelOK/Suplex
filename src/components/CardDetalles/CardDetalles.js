@@ -1,18 +1,27 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { db } from "../../config/firebase";
 import { getDoc, doc } from "firebase/firestore";
-
+import { CartContext } from "../../Context/CartContext";
 import Contador from "../Contador/Contador";
 import "./cardDetalles.css";
 
 function CardDetalles() {
   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState(null);
-  const [cantidadAgregada, setCantidadAgregada] = useState(0); // Mantenemos esta parte
+  const [cantidadAgregada, setCantidadAgregada] = useState(0); 
+  const {addItem} = useContext(CartContext)
 
   const agregar = (cantidad) => {
     setCantidadAgregada(cantidad);
+
+    const item = {
+     nombre : productDetails.nombre, 
+     id : productId, 
+     precio : productDetails.precio
+    }
+
+    addItem(item, cantidad)
   };
 
   const getProductDetails = async () => {
