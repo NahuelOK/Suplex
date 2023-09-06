@@ -14,11 +14,11 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/">Inicio</Link>
+                            <Link className="enlaces" to="/">Inicio</Link>
                         </li>
                         <li className="nav-item dropdown">
-                            <button className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Productos</button>
-                            <ul className="dropdown-menu">
+                            <button className="enlaces dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">Productos</button>
+                            <ul className="dropdown-menu color-desplegables">
                                 <Link className="dropdown-item" to="/proteinas">Proteinas</Link>
                                 <Link className="dropdown-item" to="/creatinas">Creatinas</Link>
                                 <li><hr className="dropdown-divider" /></li>
@@ -26,7 +26,7 @@ const NavBar = () => {
                             </ul>
                         </li>
                         <li className="nav-item">
-                        <Link className="nav-link active" to="/mi-cuenta">Mi Cuenta</Link>
+                        <Link className="enlaces" to="/mi-cuenta">Mi Cuenta</Link>
                         </li>
                     </ul>
                 </div>
