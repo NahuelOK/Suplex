@@ -4,6 +4,10 @@ import { db } from "../../config/firebase";
 import { getDocs, collection, query, where, documentId, addDoc} from "firebase/firestore"; 
 import { Timestamp, writeBatch } from "firebase/firestore";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import NavBar from "../NavBar/NavBar"
+import Footer from "../Footer/Footer"
+import Separadores from "../Separadores/Separadores"
+import { Link } from "react-router-dom";
 
 const Checkout = () =>{
     const [cargando, setCargando] = useState(false)
@@ -74,13 +78,20 @@ const Checkout = () =>{
         return <h1>Se está cargando su orden...</h1>
     }
     if(orderId){
-        return <h1>El id de su orden es: {orderId}</h1>
+        return (
+            <div>
+                <h1>El id de su orden es: {orderId}</h1>
+                <Link to="/">Volver</Link>   
+            </div>
+        )
     }
 
     return(
         <div>
-            <h1>Checkout</h1>
+            <NavBar/>
+            <Separadores titulo={"Checkout"}/>
             <CheckoutForm onConfirm={createOrder} />
+            <Footer/>
         </div>
     )
 }

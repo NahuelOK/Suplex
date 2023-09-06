@@ -17,9 +17,9 @@ const CheckoutForm = ({ onConfirm }) => {
     }
 
     return(
-        <div>
-            <form onSubmit={handleConfirm}>
-                <label>
+        <div className="contenedor-form">
+            <form onSubmit={handleConfirm} className="formulario-de-orden">
+                <label className="labels-form">
                     Nombre
                     <input
                     className="inputt"
@@ -28,7 +28,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     onChange={({ target })=> setNombre(target.value)} 
                     />
                 </label>
-                <label>
+                <label className="labels-form">
                     Celular
                     <input
                     className="inputt"
@@ -37,7 +37,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     onChange={({ target })=> setCel(target.value)} 
                     />
                 </label>
-                <label>
+                <label className="labels-form">
                     Email
                     <input
                     className="inputt"

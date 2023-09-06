@@ -1,0 +1,22 @@
+.formulario-de-orden{
+    width: 44%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.labels-form{
+    display: flex;
+    flex-direction: column;
+}
+.boton-orden{
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+}
+.contenedor-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    margin-bottom: 8%;
+}
